@@ -1,7 +1,8 @@
 @import "./header.css";
 
+
     .inner-div {
-        background: green;
+        background: $blue;
         display: flex;
 
         &__div{

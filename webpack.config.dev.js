@@ -3,7 +3,6 @@ var path = require('path');
 var precss = require('precss');
 var autoprefixer = require('autoprefixer');
 var postcssImport = require('postcss-import');
-var postcssNested = require('postcss-nested');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -32,8 +31,7 @@ module.exports = {
         return [
             postcssImport({addDependencyTo: webpack}),
             precss,
-            autoprefixer,
-            postcssNested
+            autoprefixer
         ]
     },
 

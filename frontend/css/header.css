@@ -1,5 +1,8 @@
+@import "./variables.css";
+
 body {
-    background-color: #f00;
+    background-color: $blue;
+
     div {
         font-size: 42px;
     }

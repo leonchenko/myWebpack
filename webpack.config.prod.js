@@ -3,9 +3,8 @@ var path = require('path');
 var precss = require('precss');
 var autoprefixer = require('autoprefixer');
 var postcssImport = require('postcss-import');
-var postcssNested = require('postcss-nested');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -20,7 +19,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract('css-loader?-minimize!postcss-loader')
+                loader: ExtractTextPlugin.extract('css-loader?importLoaders=1&-minimize!postcss-loader')
             },
             {
                 test: /\.(eot|woff|woff2|ttf|svg|png|gif|jpg|otf)?(\?v=[0-9].[0-9].[0-9])?$/,
@@ -31,12 +30,9 @@ module.exports = {
 
     postcss: function (webpack) {
         return [
+            postcssImport({addDependencyTo: webpack}),
             precss,
-            autoprefixer,
-            postcssNested,
-            postcssImport({
-                addDependencyTo: webpack
-            })
+            autoprefixer
         ]
     },
 

@@ -11,6 +11,7 @@
     "html-webpack-plugin": "2.21.0",
     "postcss-import": "^8.1.2",
     "postcss-loader": "^0.9.1",
+    "postcss-nested": "^1.0.0",
     "precss": "^1.4.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
