@@ -1,0 +1,1 @@
+module.exports = '<div class="inner-div">It works from content.js.<div class="inner-div__div">sdfsd dsfds sdf dsf dsf dsf ds ds sdf</div></div>';

@@ -1,0 +1,14 @@
+@import "./header.css";
+
+    .inner-div {
+        background: green;
+        display: flex;
+
+        &__div{
+            background: red;
+        }
+        div{
+
+            background-image: url(./../img/settings.svg);
+        }
+    }
