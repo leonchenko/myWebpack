@@ -5,11 +5,11 @@ var autoprefixer = require('autoprefixer');
 var postcssImport = require('postcss-import');
 var postcssNested = require('postcss-nested');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        name: path.join(__dirname, './frontend/entry.js')
+        name: './frontend/entry.js'
     },
     output: {
         path: path.join(__dirname, 'assets'),
@@ -30,6 +30,7 @@ module.exports = {
 
     postcss: function (webpack) {
         return [
+            postcssImport({addDependencyTo: webpack}),
             precss,
             autoprefixer,
             postcssNested
@@ -45,5 +46,9 @@ module.exports = {
 
         new ExtractTextPlugin("styles.css"),
         new HtmlWebpackPlugin()
-    ]
+    ],
+
+    devServer: {
+        stats: require('./stats')
+    }
 };
